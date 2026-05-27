@@ -28,6 +28,10 @@ export class ClusterComponent extends pulumi.ComponentResource {
         removeDefaultNodePool: true,
         releaseChannel: { channel: "REGULAR" },
         deletionProtection: false,
+        monitoringConfig: {
+          enableComponents: ["SYSTEM_COMPONENTS"],
+          managedPrometheus: { enabled: false },
+        },
       },
       {
         parent: this,
@@ -45,7 +49,7 @@ export class ClusterComponent extends pulumi.ComponentResource {
         management: { autoRepair: true, autoUpgrade: true },
         nodeConfig: {
           spot: true,
-          machineType: "e2-small",
+          machineType: "e2-medium",
           imageType: "COS_CONTAINERD",
           diskType: "pd-standard",
           diskSizeGb: 30,
