@@ -38,6 +38,16 @@ pulumi stack output grafanaPassword --show-secrets
 
 Open `grafanaUrl` in a browser, log in as `admin` with the password above, navigate to **Dashboards > Guestbook**.
 
+## Screenshots
+
+Reference from a working deploy:
+
+![Stack outputs](images/pulumi_output.jpg)
+*`pulumi stack output` — URLs surface as outputs, `grafanaPassword` stays redacted as `[secret]`.*
+
+![Grafana login](images/grafana_login.jpg)
+*Grafana served on the LoadBalancer IP, admin login enabled, anonymous access disabled.*
+
 ## Verify
 
 Guestbook reachable:
